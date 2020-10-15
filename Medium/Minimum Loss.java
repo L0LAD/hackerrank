@@ -8,20 +8,20 @@ import java.util.regex.*;
 
 public class Solution {
 
-    // Complete the minimumLoss function below.
+    //Complete the minimumLoss function below.
     static int minimumLoss(long[] prices) {
         int n = prices.length;
         HashMap<Long, Integer> pricesMap = new HashMap<>();
         
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             pricesMap.put(prices[i], i);
         }
         Arrays.sort(prices);
 
         long result = Long.MAX_VALUE;
-        for(int i = 0; i < n-1; i++){
-            if(prices[i+1] - prices[i] < result){
-                if(pricesMap.get(prices[i+1]) < pricesMap.get(prices[i]))
+        for (int i = 0; i < n-1; i++) {
+            if (prices[i+1] - prices[i] < result) {
+                if (pricesMap.get(prices[i+1]) < pricesMap.get(prices[i]))
                     result = prices[i+1] - prices[i];
             }
         }
